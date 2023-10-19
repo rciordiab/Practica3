@@ -21,20 +21,13 @@ type origen={
     url: string
 }
 
-export const GetChar: (id: number) => Promise <Character> = async (id: number) : Promise <Character> =>{
-    const url1  = `https://rickandmortyapi.com/api/character/${id}`
+export const GetPag= async (pagina1: number) : Promise <pagina> =>{
+    const url1  = `https://rickandmortyapi.com/api/character/?page=${pagina1}`
     const data: Response = (await fetch(url1))
-    const charact: any = await data.json()
+    const pag= await data.json()
     return{
-        id: charact.id, 
-        name: charact.name,
-        status: charact.status,
-        species: charact.species,
-        gender: charact.gender,
-        origin: charact.origin,
-        location: charact.location,
-        created: charact.created,
-
+        info: pag.info.pag,
+        results: pag.results
     }
 
 }
