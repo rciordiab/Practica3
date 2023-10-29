@@ -29,5 +29,4 @@ export const GetPag= async (pagina1: number) : Promise <pagina> =>{
         info: pag.info.pag,
         results: pag.results
     }
-
 }
